@@ -9,7 +9,7 @@ export const ToggleConnectButton = () => {
       aria-label="Toggle Connect"
       pressed={connected}
       onPressedChange={handlePress}
-      className=""
+      className="bg-zinc-600 px-4 py-2"
     >
       {!connected ? "接続する" : "接続を切る"}
     </Toggle.Root>
