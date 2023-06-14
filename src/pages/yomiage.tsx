@@ -1,6 +1,6 @@
 import { ToggleConnectButton } from "~/components/ToggleConnectButton";
 import { signOut } from "next-auth/react";
-import { Input } from "~/components/ui/Input";
+import { Input } from "~/components/ui";
 
 export default () => {
   return (
