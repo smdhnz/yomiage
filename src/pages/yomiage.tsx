@@ -7,7 +7,6 @@ export default () => {
     <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <div className="w-full max-w-sm rounded-xl border border-white/20 bg-white/10 p-6">
         <div className="flex flex-col gap-4">
-          <Input />
           <ToggleConnectButton />
           <button
             className="rounded-md bg-white/10 px-4 py-2 text-white transition hover:bg-white/20 active:scale-95"
