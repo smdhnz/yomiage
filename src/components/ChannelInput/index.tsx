@@ -4,7 +4,7 @@ import { Input } from "~/components/ui";
 import { channelAtom } from "~/atoms";
 
 export const ChannelInput = () => {
-  const [channle, setChannel] = useAtom(channelAtom);
+  const [channel, setChannel] = useAtom(channelAtom);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setChannel(e.currentTarget.value);
@@ -14,7 +14,7 @@ export const ChannelInput = () => {
     <Input
       label="チャンネル名"
       id="channel"
-      value={channle}
+      value={channel}
       onChange={handleChange}
     />
   );
