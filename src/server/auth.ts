@@ -10,14 +10,12 @@ export const authOptions: NextAuthOptions = {
     signIn: async ({ account }) => {
       if (!account || !account.access_token) return false;
 
-      const guilds = await request<{ id: string }[]>(
-        "https://discordapp.com/api/users/@me/guilds",
+      const user = await request<{ id: string }[]>(
+        "https://discordapp.com/api/users/@me",
         { headers: { Authorization: `Bearer ${account.access_token}` } }
       );
 
-      const allowedGuilds = env.DISCORD_GUILDS;
-
-      return guilds.some((guild) => allowedGuilds.includes(guild.id));
+      return !!user;
     },
   },
   providers: [
@@ -25,7 +23,7 @@ export const authOptions: NextAuthOptions = {
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
       authorization: {
-        params: { scope: "identify guilds" },
+        params: { scope: "identify" },
       },
     }),
   ],

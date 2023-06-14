@@ -14,10 +14,6 @@ export const env = createEnv({
     ),
     DISCORD_CLIENT_ID: z.string().min(1),
     DISCORD_CLIENT_SECRET: z.string().min(1),
-    DISCORD_GUILDS: z
-      .string()
-      .min(1)
-      .transform((str) => str.split(",")),
   },
 
   client: {},
@@ -28,7 +24,6 @@ export const env = createEnv({
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
-    DISCORD_GUILDS: process.env.DISCORD_GUILDS,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
