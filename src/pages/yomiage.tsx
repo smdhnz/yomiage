@@ -1,6 +1,7 @@
 import { ToggleConnectButton } from "~/components/ToggleConnectButton";
 import { signOut } from "next-auth/react";
 import { ChannelInput } from "~/components/ChannelInput";
+import { buttonVariable } from "~/utils";
 
 export default () => {
   return (
@@ -9,10 +10,7 @@ export default () => {
         <div className="flex flex-col gap-4">
           <ChannelInput />
           <ToggleConnectButton />
-          <button
-            className="rounded-md bg-white/10 px-4 py-2 text-white transition hover:bg-white/20 active:scale-95"
-            onClick={() => void signOut()}
-          >
+          <button className={buttonVariable} onClick={() => void signOut()}>
             サインアウト
           </button>
           <p className="text-center text-xs font-bold text-white/50">

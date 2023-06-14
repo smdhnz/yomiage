@@ -1,23 +1,15 @@
 import * as Toggle from "@radix-ui/react-toggle";
 import { useHook } from "./hook";
-import { cn } from "~/utils";
+import { cn, buttonVariable } from "~/utils";
 
 export const ToggleConnectButton = () => {
   const { connected, handlePress } = useHook();
 
   const className = cn(
-    "rounded-md",
-    "px-4 py-2",
-    "text-white",
-    "transition",
-    "active:scale-95",
+    buttonVariable,
     connected ? "bg-red-500/10" : "bg-white/10",
     connected ? "hover:bg-red-500/20" : "hover:bg-white/20",
-    connected ? "shadow-lg shadow-red-500" : "",
-    "focus-visible:ring-ring",
-    "focus-visible:outline-none",
-    "focus-visible:ring-2",
-    "focus-visible:ring-white/50"
+    connected ? "shadow-lg shadow-red-500" : ""
   );
 
   return (

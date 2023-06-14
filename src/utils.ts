@@ -44,3 +44,17 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const buttonVariable = cn(
+  "rounded-md",
+  "px-4 py-2",
+  "text-white",
+  "transition",
+  "active:scale-95",
+  "focus-visible:ring-ring",
+  "focus-visible:outline-none",
+  "focus-visible:ring-2",
+  "focus-visible:ring-white/50",
+  "bg-white/10",
+  "hover:bg-white/20"
+);
