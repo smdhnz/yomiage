@@ -4,6 +4,7 @@ import { ChannelInput } from "~/components/ChannelInput";
 import { MaxCharactersInput } from "~/components/MaxCharactersInput";
 import { ExcludeCharactersInput } from "~/components/ExcludeCharactersInput";
 import { ExcludeUsersInput } from "~/components/ExcludeUsersInput";
+import { VolumeSlider } from "~/components/VolumeSlider";
 import { buttonVariable } from "~/utils";
 
 export default () => {
@@ -15,6 +16,7 @@ export default () => {
           <MaxCharactersInput />
           <ExcludeCharactersInput />
           <ExcludeUsersInput />
+          <VolumeSlider />
           <ToggleConnectButton />
           <button className={buttonVariable} onClick={() => void signOut()}>
             サインアウト
