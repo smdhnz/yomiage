@@ -14,6 +14,7 @@ export const env = createEnv({
     ),
     DISCORD_CLIENT_ID: z.string().min(1),
     DISCORD_CLIENT_SECRET: z.string().min(1),
+    MICROCMS_API_KEY: z.string().min(1),
   },
 
   client: {},
@@ -24,6 +25,7 @@ export const env = createEnv({
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
+    MICROCMS_API_KEY: process.env.MICROCMS_API_KEY,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
