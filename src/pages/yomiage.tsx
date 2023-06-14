@@ -2,6 +2,7 @@ import { signOut } from "next-auth/react";
 import { ToggleConnectButton } from "~/components/ToggleConnectButton";
 import { ChannelInput } from "~/components/ChannelInput";
 import { MaxCharactersInput } from "~/components/MaxCharactersInput";
+import { ExcludeCharactersInput } from "~/components/ExcludeCharactersInput";
 import { buttonVariable } from "~/utils";
 
 export default () => {
@@ -11,6 +12,7 @@ export default () => {
         <div className="flex flex-col gap-4">
           <ChannelInput />
           <MaxCharactersInput />
+          <ExcludeCharactersInput />
           <ToggleConnectButton />
           <button className={buttonVariable} onClick={() => void signOut()}>
             サインアウト
