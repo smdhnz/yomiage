@@ -3,6 +3,7 @@ import { ToggleConnectButton } from "~/components/ToggleConnectButton";
 import { ChannelInput } from "~/components/ChannelInput";
 import { MaxCharactersInput } from "~/components/MaxCharactersInput";
 import { ExcludeCharactersInput } from "~/components/ExcludeCharactersInput";
+import { ExcludeUsersInput } from "~/components/ExcludeUsersInput";
 import { buttonVariable } from "~/utils";
 
 export default () => {
@@ -13,12 +14,13 @@ export default () => {
           <ChannelInput />
           <MaxCharactersInput />
           <ExcludeCharactersInput />
+          <ExcludeUsersInput />
           <ToggleConnectButton />
           <button className={buttonVariable} onClick={() => void signOut()}>
             サインアウト
           </button>
           <p className="text-center text-xs font-bold text-white/50">
-            VOICEVOX: _____
+            VOICEVOX: ずんだもん
           </p>
         </div>
       </div>
