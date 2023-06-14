@@ -29,10 +29,11 @@ const Input = React.forwardRef<
           "ring-offset-background",
           "hover:bg-white/20",
           "placeholder:text-muted-foreground",
+          "transition",
           "focus-visible:ring-ring",
           "focus-visible:outline-none",
           "focus-visible:ring-2",
-          "focus-visible:ring-white/40",
+          "focus-visible:ring-white/50",
           "disabled:cursor-not-allowed",
           "disabled:opacity-50",
           className
