@@ -1,11 +1,21 @@
 import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 import tmi from "tmi.js";
 
-export const channelAtom = atom<string>("jp_unpi");
-export const volumeAtom = atom<number>(0.5);
-export const maxCharactersAtom = atom<number>(30);
-export const excludeUsersAtom = atom<string>("");
-export const excludeCharactersAtom = atom<string>("");
+export const channelAtom = atomWithStorage<string>("_yomiage.channel", "");
+export const volumeAtom = atomWithStorage<number>("_yomiage.volume", 0.5);
+export const maxCharactersAtom = atomWithStorage<number>(
+  "_yomiage.maxCharacters",
+  30
+);
+export const excludeUsersAtom = atomWithStorage<string>(
+  "_yomiage.excludeUsers",
+  ""
+);
+export const excludeCharactersAtom = atomWithStorage<string>(
+  "_yomiage.excludeCharacters",
+  ""
+);
 
 export const paramAtom = atom((get) => ({
   channel: get(channelAtom),
