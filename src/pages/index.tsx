@@ -2,7 +2,7 @@ import { signIn } from "next-auth/react";
 import { SiDiscord } from "react-icons/si";
 import { cn, buttonVariable } from "~/utils";
 
-export default () => {
+const Home = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
@@ -28,6 +28,8 @@ export default () => {
     </main>
   );
 };
+
+export default Home;
 
 import type { GetServerSidePropsContext } from "next";
 import { getServerAuthSession } from "~/server/auth";

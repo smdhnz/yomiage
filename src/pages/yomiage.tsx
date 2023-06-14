@@ -7,7 +7,7 @@ import { ExcludeUsersInput } from "~/components/ExcludeUsersInput";
 import { VolumeSlider } from "~/components/VolumeSlider";
 import { buttonVariable } from "~/utils";
 
-export default () => {
+const Yomiage = () => {
   return (
     <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <div className="w-full max-w-sm rounded-xl border border-white/20 bg-white/10 p-6">
@@ -29,6 +29,8 @@ export default () => {
     </main>
   );
 };
+
+export default Yomiage;
 
 import { type GetServerSidePropsContext } from "next";
 import { getServerAuthSession } from "~/server/auth";

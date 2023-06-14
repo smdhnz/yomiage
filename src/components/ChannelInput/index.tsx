@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 import { useAtom } from "jotai";
 import { Input } from "~/components/ui";
 import { channelAtom } from "~/atoms";

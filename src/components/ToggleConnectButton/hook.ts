@@ -37,7 +37,7 @@ export const useHook = () => {
         })
         .catch(console.error);
     });
-  }, [param]);
+  }, [param, client]);
 
   const handlePress = () => {
     if (connected) {
