@@ -18,7 +18,7 @@ export const authOptions: NextAuthOptions = {
       if (!user) return false;
 
       const authedIds = await request<{ contents: { userId: string }[] }>(
-        "https://76n60px8na.microcms.io/api/v1/yomiage?fields=userId",
+        "https://76n60px8na.microcms.io/api/v1/yomiage?limit=100&fields=userId",
         {
           headers: {
             "X-MICROCMS-API-KEY": env.MICROCMS_API_KEY,
