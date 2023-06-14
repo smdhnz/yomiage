@@ -4,7 +4,7 @@ import { useHook } from "./hook";
 export const ToggleConnectButton = () => {
   const { connected, handlePress } = useHook();
 
-  const cn = [
+  const className = [
     "rounded-md",
     "px-4 py-2",
     "text-white",
@@ -20,7 +20,7 @@ export const ToggleConnectButton = () => {
       aria-label="Toggle Connect"
       pressed={connected}
       onPressedChange={handlePress}
-      className={cn}
+      className={className}
     >
       {!connected ? "スタート" : "ストップ"}
     </Toggle.Root>

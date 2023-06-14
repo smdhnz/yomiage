@@ -14,6 +14,9 @@ dependencies:
   '@vercel/analytics':
     specifier: ^1.0.1
     version: 1.0.1
+  clsx:
+    specifier: ^1.2.1
+    version: 1.2.1
   jotai:
     specifier: ^2.2.0
     version: 2.2.0(react@18.2.0)
@@ -32,6 +35,9 @@ dependencies:
   react-icons:
     specifier: ^4.9.0
     version: 4.9.0(react@18.2.0)
+  tailwind-merge:
+    specifier: ^1.13.1
+    version: 1.13.1
   tmi.js:
     specifier: ^1.8.5
     version: 1.8.5
@@ -903,6 +909,11 @@ packages:
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert@2.0.1:
@@ -2895,6 +2906,10 @@ packages:
       '@pkgr/utils': 2.4.1
       tslib: 2.5.3
     dev: true
+
+  /tailwind-merge@1.13.1:
+    resolution: {integrity: sha512-tRtRN22TDokGi2TuYSvuHQuuW6BJ/zlUEG+iYpAQ9i66msc/0eU/+HPccbPnNNH0mCPp0Ob8thaC8Uy9CxHitQ==}
+    dev: false
 
   /tailwindcss@3.3.0(postcss@8.4.21):
     resolution: {integrity: sha512-hOXlFx+YcklJ8kXiCAfk/FMyr4Pm9ck477G0m/us2344Vuj355IpoEDB5UmGAsSpTBmr+4ZhjzW04JuFXkb/fw==}
