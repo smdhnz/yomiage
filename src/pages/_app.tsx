@@ -41,7 +41,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           url: "https://yomiage.fumiya.dev",
           images: [
             {
-              url: "",
+              url: "https://cdn.discordapp.com/attachments/945315689210712084/1118931372959088640/image.png",
               width: 800,
               height: 600,
               alt: "yomiage OG Image",
