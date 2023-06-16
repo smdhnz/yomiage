@@ -2,6 +2,7 @@ import { type Session } from "next-auth";
 import { type AppType } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { Inter, Noto_Sans_JP } from "next/font/google";
+import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
 import "~/styles/globals.css";
@@ -24,8 +25,31 @@ const MyApp: AppType<{ session: Session | null }> = ({
     <>
       <Analytics />
       <Head>
-        <title>yomiage - fumiya.dev</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
+      <DefaultSeo
+        defaultTitle="yomiage - fumiya.dev"
+        description="配信のコメントの読み上げをブラウザ上で行えるサービス"
+        openGraph={{
+          type: "website",
+          title: "yomiage - fumiya.dev",
+          description: "配信のコメントの読み上げをブラウザ上で行えるサービス",
+          siteName: "yomiage",
+          url: "https://yomiage.fumiya.dev",
+          images: [
+            {
+              url: "",
+              width: 800,
+              height: 600,
+              alt: "yomiage OG Image",
+              type: "image/jpeg",
+            },
+          ],
+        }}
+      />
       <SessionProvider session={session}>
         <div className={`${inter.variable} ${notojp.variable} font-sans`}>
           <Component {...pageProps} />
