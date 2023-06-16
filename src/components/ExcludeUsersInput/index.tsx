@@ -13,7 +13,7 @@ export const ExcludeUsersInput = () => {
   return (
     <Input
       label="除外するユーザー名（カンマ区切り）"
-      id="excludeCharacters"
+      id="excludeUsers"
       value={excludeUsers}
       onChange={handleChange}
     />
