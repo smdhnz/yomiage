@@ -17,6 +17,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </label>
         )}
         <input
+          id={id}
           type={type}
           className={cn(
             "flex",
