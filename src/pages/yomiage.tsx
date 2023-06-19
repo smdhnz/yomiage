@@ -7,7 +7,12 @@ import { ExcludeUsersInput } from "~/components/ExcludeUsersInput";
 import { VolumeSlider } from "~/components/VolumeSlider";
 import { buttonVariable } from "~/utils";
 
+import { useAtomValue } from "jotai";
+import { channelAtom } from "~/atoms";
+
 const Yomiage = () => {
+  const channel = useAtomValue(channelAtom);
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <div className="w-full max-w-sm rounded-xl border border-white/20 bg-white/10 p-6">
@@ -18,6 +23,20 @@ const Yomiage = () => {
           <ExcludeUsersInput />
           <VolumeSlider />
           <ToggleConnectButton />
+          <button
+            className={buttonVariable}
+            onClick={() => {
+              if (!channel) return;
+
+              window.open(
+                `https://www.twitch.tv/embed/${channel}/chat?parent=yomiage.fumiya.dev`,
+                "Chat",
+                "width=450,height=600,scrollbars=yes"
+              );
+            }}
+          >
+            チャットを開く
+          </button>
           <button className={buttonVariable} onClick={() => void signOut()}>
             サインアウト
           </button>
