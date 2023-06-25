@@ -13,6 +13,9 @@ export const useHook = () => {
     client.removeAllListeners();
     client.on("message", (_channel, tags, message, _self) => {
       const author = tags["username"];
+      const displayName = tags["display-name"];
+
+      console.log(`${displayName}[${author}]: ${message}`);
 
       // 除外
       if (!author) return;
@@ -22,12 +25,10 @@ export const useHook = () => {
 
       // 置換
       const replacedMessage = omitReplace(
-        urlReplace(message, "URL省略"),
+        `${displayName}: ` + urlReplace(message, "URL省略"),
         param.filter.maxCharacters,
         "以下省略"
       );
-
-      console.log(author, replacedMessage);
 
       // ボイボ取得 & 再生
       fetchVoiceVox(3, replacedMessage)
