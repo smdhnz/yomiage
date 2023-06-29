@@ -29,7 +29,7 @@ const Yomiage = () => {
               if (!channel) return;
 
               window.open(
-                `https://www.twitch.tv/embed/${channel}/chat?parent=yomiage.fumiya.dev`,
+                `https://www.twitch.tv/${channel}/chat`,
                 "Chat",
                 "width=450,height=600,scrollbars=yes"
               );
