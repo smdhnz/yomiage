@@ -22,7 +22,7 @@ export const VolumeSlider = () => {
         aria-label="volume"
         min={0}
         max={1}
-        step={0.1}
+        step={0.01}
         value={[volume]}
         className="flex-grow"
         onValueChange={handleChange}
