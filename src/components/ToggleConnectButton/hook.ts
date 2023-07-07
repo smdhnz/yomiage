@@ -15,8 +15,6 @@ export const useHook = () => {
       const author = tags["username"];
       const displayName = tags["display-name"];
 
-      console.log(`${displayName ?? ""}[${author ?? ""}]: ${message}`);
-
       // 除外
       if (!author) return;
       if (param.filter.exclude.users.includes(author)) return;
@@ -29,6 +27,8 @@ export const useHook = () => {
         param.filter.maxCharacters,
         "以下省略"
       );
+
+      console.log(replacedMessage);
 
       // ボイボ取得 & 再生
       fetchVoiceVox(3, replacedMessage)
