@@ -25,7 +25,7 @@ export const useHook = () => {
 
       // 置換
       const replacedMessage = omitReplace(
-        `${displayName ?? ""}: ` + urlReplace(message, "URL省略"),
+        `${displayName ?? ""}、` + urlReplace(message, "URL省略"),
         param.filter.maxCharacters,
         "以下省略"
       );
