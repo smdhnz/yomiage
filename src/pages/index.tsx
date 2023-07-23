@@ -1,35 +1,25 @@
+import { Button } from "~/components/ui/button";
 import { signIn } from "next-auth/react";
-import { SiDiscord } from "react-icons/si";
-import { cn, buttonVariable } from "~/utils";
+import { cn } from "~/lib/utils";
 
-const Home = () => {
+export default function Home() {
+  const handleSignIn = () => signIn("discord");
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <h1 className="text-6xl font-extrabold tracking-tight text-white">
-          yomiage
-        </h1>
-        <p className="text-center text-white">
-          配信中のコメントの読み上げをブラウザ上で行えます
-          <br />
-          ※現在はTwitchのみ
-        </p>
-        <button
-          onClick={() => void signIn("discord")}
-          className={cn(
-            buttonVariable,
-            "flex items-center bg-[#5865f2] shadow-xl hover:bg-[#4752c4]"
-          )}
-        >
-          <SiDiscord className="mr-3 h-6 w-6" />
-          Sign in with Discord
-        </button>
-      </div>
-    </main>
+    <div
+      className={cn(
+        "min-h-screen",
+        "flex flex-col gap-5",
+        "items-center justify-center"
+      )}
+    >
+      <h1 className="text-lg font-semibold">yomiage - fumiya.dev</h1>
+      <Button onClick={handleSignIn} variant="link">
+        ログイン
+      </Button>
+    </div>
   );
-};
-
-export default Home;
+}
 
 import type { GetServerSidePropsContext } from "next";
 import { getServerAuthSession } from "~/server/auth";

@@ -1,58 +1,32 @@
+import * as React from "react";
+import { useRouter } from "next/router";
 import { signOut } from "next-auth/react";
-import { ToggleConnectButton } from "~/components/ToggleConnectButton";
-import { ChannelInput } from "~/components/ChannelInput";
-import { MaxCharactersInput } from "~/components/MaxCharactersInput";
-import { ExcludeCharactersInput } from "~/components/ExcludeCharactersInput";
-import { ExcludeUsersInput } from "~/components/ExcludeUsersInput";
-import { VolumeSlider } from "~/components/VolumeSlider";
-import { buttonVariable } from "~/utils";
+import { type GetServerSidePropsContext } from "next";
 
-import { useAtomValue } from "jotai";
-import { channelAtom } from "~/atoms";
+import { getServerAuthSession } from "~/server/auth";
+import { Button } from "~/components/ui/button";
+import { Form } from "~/components/form";
 
-const Yomiage = () => {
-  const channel = useAtomValue(channelAtom);
+export default function Yomiage() {
+  const router = useRouter();
+  const handleSignOut = () => {
+    signOut().then(() => {
+      router.replace("/");
+    });
+  };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-      <div className="w-full max-w-sm rounded-xl border border-white/20 bg-white/10 p-6">
-        <div className="flex flex-col gap-4">
-          <ChannelInput />
-          <MaxCharactersInput />
-          <ExcludeCharactersInput />
-          <ExcludeUsersInput />
-          <VolumeSlider />
-          <ToggleConnectButton />
-          <button
-            className={buttonVariable}
-            onClick={() => {
-              if (!channel) return;
-
-              window.open(
-                `https://www.twitch.tv/${channel}/chat`,
-                "Chat",
-                "width=450,height=600,scrollbars=yes"
-              );
-            }}
-          >
-            チャットを開く
-          </button>
-          <button className={buttonVariable} onClick={() => void signOut()}>
-            サインアウト
-          </button>
-          <p className="text-center text-xs font-bold text-white/50">
-            VOICEVOX: ずんだもん
-          </p>
-        </div>
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-6 py-8">
+      <div className="flex flex-row items-center justify-between">
+        <h1 className="text-lg font-semibold">yomiage - fumiya.dev</h1>
+        <Button onClick={handleSignOut} variant="link">
+          ログアウト
+        </Button>
       </div>
-    </main>
+      <Form />
+    </div>
   );
-};
-
-export default Yomiage;
-
-import { type GetServerSidePropsContext } from "next";
-import { getServerAuthSession } from "~/server/auth";
+}
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const session = await getServerAuthSession(ctx);

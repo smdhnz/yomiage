@@ -1,4 +1,4 @@
-import { request } from "~/utils";
+import { typedFetch } from "./utils";
 
 type ResponseType = {
   retryAfter: number | undefined;
@@ -18,7 +18,7 @@ export function fetchVoiceVox(
       reject(new Error("Audio src already set"));
     }
 
-    request<ResponseType>(
+    typedFetch<ResponseType>(
       "https://api.tts.quest/v3/voicevox/synthesis" + params
     )
       .then((data) => {

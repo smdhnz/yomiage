@@ -4,8 +4,9 @@ import { SessionProvider } from "next-auth/react";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
-import { Analytics } from "@vercel/analytics/react";
+import { cn } from "~/lib/utils";
 import "~/styles/globals.css";
+import { Toaster } from "~/components/ui/toaster";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <>
-      <Analytics />
       <Head>
         <meta
           name="viewport"
@@ -51,9 +51,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
         }}
       />
       <SessionProvider session={session}>
-        <div className={`${inter.variable} ${notojp.variable} font-sans`}>
+        <main className={cn(inter.variable, notojp.variable, "font-sans")}>
           <Component {...pageProps} />
-        </div>
+          <Toaster />
+        </main>
       </SessionProvider>
     </>
   );
