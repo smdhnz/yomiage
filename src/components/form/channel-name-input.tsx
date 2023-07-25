@@ -9,8 +9,9 @@ export const ChannelNameInput = () => {
 
   return (
     <div className="flex flex-col items-start gap-2">
-      <Label>チャンネル名</Label>
+      <Label htmlFor="channel-name">チャンネル名</Label>
       <Input
+        id="channel-name"
         className="w-full"
         value={channelName}
         onChange={(e) => setChannelName(e.currentTarget.value)}

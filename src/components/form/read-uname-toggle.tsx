@@ -9,8 +9,12 @@ export const ReadUnameToggle = () => {
 
   return (
     <div className="flex flex-col items-start gap-2">
-      <Label>ユーザー名の読み上げ</Label>
-      <Switch checked={readUname} onCheckedChange={setReadUname} />
+      <Label htmlFor="read-uname">ユーザー名の読み上げ</Label>
+      <Switch
+        id="read-uname"
+        checked={readUname}
+        onCheckedChange={setReadUname}
+      />
     </div>
   );
 };

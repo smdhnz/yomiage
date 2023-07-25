@@ -9,8 +9,9 @@ export const MaxCharsInput = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <Label>最大文字数</Label>
+      <Label htmlFor="max-chars">最大文字数</Label>
       <Input
+        id="max-chars"
         className="w-full"
         type="number"
         value={maxChars}
