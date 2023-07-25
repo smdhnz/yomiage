@@ -5,6 +5,7 @@ import { Inter, Noto_Sans_JP } from "next/font/google";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 
+import { ThemeProvider } from "~/components/ui/theme-provider";
 import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
 
@@ -53,10 +54,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
         }}
       />
       <SessionProvider session={session}>
-        <main className={cn(inter.variable, notojp.variable, "font-sans")}>
-          <Component {...pageProps} />
-          <Toaster />
-        </main>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <main className={cn(inter.variable, notojp.variable, "font-sans")}>
+            <Component {...pageProps} />
+            <Toaster />
+          </main>
+        </ThemeProvider>
       </SessionProvider>
     </>
   );

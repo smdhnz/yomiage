@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react";
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/form";
 import { getServerAuthSession } from "~/server/auth";
+import { ToggleThemeButton } from "~/components/toggle-theme-button";
 
 export default function Yomiage() {
   const router = useRouter();
@@ -17,8 +18,9 @@ export default function Yomiage() {
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-col gap-8 py-8">
-      <div className="flex flex-row items-center justify-between">
-        <h1 className="text-lg font-semibold">yomiage - fumiya.dev</h1>
+      <div className="flex items-center">
+        <h1 className="grow text-lg font-semibold">yomiage - fumiya.dev</h1>
+        <ToggleThemeButton />
         <Button onClick={handleSignOut} variant="link">
           ログアウト
         </Button>
