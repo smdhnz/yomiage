@@ -4,9 +4,11 @@ import { SessionProvider } from "next-auth/react";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
-import { cn } from "~/lib/utils";
-import "~/styles/globals.css";
+
 import { Toaster } from "~/components/ui/toaster";
+import { cn } from "~/lib/utils";
+
+import "~/styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],

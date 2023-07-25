@@ -1,14 +1,14 @@
-import * as React from "react";
+import { type GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { signOut } from "next-auth/react";
-import { type GetServerSidePropsContext } from "next";
 
-import { getServerAuthSession } from "~/server/auth";
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/form";
+import { getServerAuthSession } from "~/server/auth";
 
 export default function Yomiage() {
   const router = useRouter();
+
   const handleSignOut = () => {
     signOut().then(() => {
       router.replace("/");
