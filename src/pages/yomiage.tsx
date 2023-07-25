@@ -16,7 +16,7 @@ export default function Yomiage() {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-6 py-8">
+    <div className="mx-auto flex w-full max-w-xl flex-col gap-8 py-8">
       <div className="flex flex-row items-center justify-between">
         <h1 className="text-lg font-semibold">yomiage - fumiya.dev</h1>
         <Button onClick={handleSignOut} variant="link">
@@ -24,6 +24,9 @@ export default function Yomiage() {
         </Button>
       </div>
       <Form />
+      <p className="text-center text-xs font-bold text-muted-foreground">
+        VOICEVOX: ずんだもん
+      </p>
     </div>
   );
 }
