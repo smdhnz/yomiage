@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAtomValue } from "jotai";
+import toast from "react-hot-toast";
 
 import { Toggle } from "~/components/ui/toggle";
 import { paramAtom, clientAtom } from "~/lib/atoms";
 import { fetchVoiceVox } from "~/lib/voicevox";
 import { urlReplace, omitReplace, playAudio, replace } from "~/lib/utils";
-import { useToast } from "../ui/use-toast";
 
 export const YomiageStartButton = () => {
-  const { toast } = useToast();
-
   const param = useAtomValue(paramAtom);
   const client = useAtomValue(clientAtom).twitch;
 
@@ -19,10 +17,7 @@ export const YomiageStartButton = () => {
     client.removeAllListeners();
 
     client.on("message", (_channel, tags, message, _self) => {
-      toast({
-        title: tags["display-name"],
-        description: message,
-      });
+      toast(`${tags["display-name"]}: ${message}`);
 
       let value: string;
 
@@ -38,7 +33,7 @@ export const YomiageStartButton = () => {
       if (param.readUname) value = `${displayName ?? ""}、${value}`;
       value = replace(value, param.replaceWords);
 
-      fetchVoiceVox(3, value)
+      fetchVoiceVox(param.speakerId, value)
         .then(async (audio) => {
           audio.volume = param.volume[0] ?? 0.5;
           await playAudio(audio);

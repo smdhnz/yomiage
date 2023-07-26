@@ -3,10 +3,10 @@ import { type AppType } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import { DefaultSeo } from "next-seo";
+import { Toaster } from "react-hot-toast";
 import Head from "next/head";
 
 import { ThemeProvider } from "~/components/ui/theme-provider";
-import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
 
 import "~/styles/globals.css";
@@ -53,6 +53,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           ],
         }}
       />
+      <Toaster position="top-center" />
       <SessionProvider session={session}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main
@@ -64,7 +65,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
             )}
           >
             <Component {...pageProps} />
-            <Toaster />
           </main>
         </ThemeProvider>
       </SessionProvider>

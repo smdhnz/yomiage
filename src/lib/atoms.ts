@@ -16,6 +16,7 @@ type Param = {
   }[];
   volume: number[];
   readUname: boolean;
+  speakerId: number;
 };
 
 export const paramAtom = atomWithStorage<Param>("yomiage-fumiya.dev_param", {
@@ -28,6 +29,7 @@ export const paramAtom = atomWithStorage<Param>("yomiage-fumiya.dev_param", {
   replaceWords: [{ from: "", to: "" }],
   volume: [0.5],
   readUname: false,
+  speakerId: 3,
 });
 
 export const channelNameAtom = focusAtom(paramAtom, (optic) =>
@@ -54,6 +56,10 @@ export const volumeAtom = focusAtom(paramAtom, (optic) => optic.prop("volume"));
 
 export const readUnameAtom = focusAtom(paramAtom, (optic) =>
   optic.prop("readUname")
+);
+
+export const speakerIdAtom = focusAtom(paramAtom, (optic) =>
+  optic.prop("speakerId")
 );
 
 export const tmiClientAtom = atom(
