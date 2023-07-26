@@ -29,14 +29,14 @@ export function SpeakerSelect(props: Props) {
 
           if (num >= 0) setSpeakerId(num);
         }}
-        value={speakerId.toString()}
+        value={`${speakerId}`}
       >
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
         <SelectContent className="max-h-80">
           {props.voicevoxSpeakers.map((s) => (
-            <SelectItem key={s.label} value={s.value.toString()}>
+            <SelectItem key={s.label} value={`${s.value}`}>
               {s.label}
             </SelectItem>
           ))}
