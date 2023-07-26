@@ -22,18 +22,21 @@ export function SpeakerSelect(props: Props) {
 
   return (
     <div className="flex flex-col items-start gap-2">
-      <Label htmlFor="speaker-select">VOICEVOX 話者</Label>
+      <Label>VOICEVOX 話者</Label>
       <Select
-        id="speaker-select"
-        onValueChange={setSpeakerId}
-        value={speakerId}
+        onValueChange={(value) => {
+          const num = Number(value);
+
+          if (num >= 0) setSpeakerId(num);
+        }}
+        value={speakerId.toString()}
       >
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
         <SelectContent className="max-h-80">
           {props.voicevoxSpeakers.map((s) => (
-            <SelectItem key={s.label} value={s.value}>
+            <SelectItem key={s.label} value={s.value.toString()}>
               {s.label}
             </SelectItem>
           ))}
