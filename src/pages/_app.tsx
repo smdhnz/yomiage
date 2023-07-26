@@ -55,7 +55,14 @@ const MyApp: AppType<{ session: Session | null }> = ({
       />
       <SessionProvider session={session}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className={cn(inter.variable, notojp.variable, "font-sans")}>
+          <main
+            className={cn(
+              inter.variable,
+              notojp.variable,
+              "font-sans",
+              "animate-slide-in-bottom"
+            )}
+          >
             <Component {...pageProps} />
             <Toaster />
           </main>
