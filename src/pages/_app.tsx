@@ -60,7 +60,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
               inter.variable,
               notojp.variable,
               "font-sans",
-              "animate-slide-in-bottom"
+              "animate-scale-in-center"
             )}
           >
             <Component {...pageProps} />
