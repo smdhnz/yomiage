@@ -68,6 +68,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           </main>
         </ThemeProvider>
       </SessionProvider>
+      <Analytics />
     </>
   );
 };
