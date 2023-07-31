@@ -4,6 +4,7 @@ import { SessionProvider } from "next-auth/react";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import { DefaultSeo } from "next-seo";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 import Head from "next/head";
 
 import { ThemeProvider } from "~/components/ui/theme-provider";
