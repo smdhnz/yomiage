@@ -11,7 +11,7 @@ export default async function Page() {
   ).map((label, i) => ({ label, value: i }));
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div>
       <div className="fixed right-5 top-5 flex gap-2">
         <ModeToggle />
         <SignOutButton variant="ghost" />

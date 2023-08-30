@@ -25,7 +25,9 @@ export default function RootLayout({
       <head />
       <body className={cn("antialiased", notoSansJp.className)}>
         <Providers attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <div className="flex min-h-screen flex-col items-center justify-center">
+            {children}
+          </div>
         </Providers>
       </body>
     </html>
