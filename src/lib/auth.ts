@@ -1,22 +1,21 @@
-import { type GetServerSidePropsContext } from "next";
-import { getServerSession, type NextAuthOptions } from "next-auth";
+import { type NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import { env } from "~/env.mjs";
-import { typedFetch } from "~/lib/utils";
+import { fetcher } from "~/lib/utils";
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
     signIn: async ({ account }) => {
       if (!account || !account.access_token) return false;
 
-      const user = await typedFetch<{ id: string }>(
+      const user = await fetcher<{ id: string }>(
         "https://discordapp.com/api/users/@me",
         { headers: { Authorization: `Bearer ${account.access_token}` } }
       );
 
       if (!user) return false;
 
-      const authedIds = await typedFetch<{ contents: { userId: string }[] }>(
+      const authedIds = await fetcher<{ contents: { userId: string }[] }>(
         "https://76n60px8na.microcms.io/api/v1/yomiage?limit=100&fields=userId",
         {
           headers: {
@@ -38,12 +37,5 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   secret: env.NEXTAUTH_SECRET,
-  pages: { signIn: "/", error: "/" },
-};
-
-export const getServerAuthSession = (ctx: {
-  req: GetServerSidePropsContext["req"];
-  res: GetServerSidePropsContext["res"];
-}) => {
-  return getServerSession(ctx.req, ctx.res, authOptions);
+  pages: { signIn: "/signin", error: "/signin" },
 };

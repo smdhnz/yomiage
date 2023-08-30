@@ -1,9 +1,6 @@
-import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
-import { focusAtom } from "jotai-optics";
-import tmi from "tmi.js";
 
-type Param = {
+export type Params = {
   channelName: string;
   filters: {
     maxChars: number;
@@ -19,7 +16,7 @@ type Param = {
   speakerId: number;
 };
 
-export const paramAtom = atomWithStorage<Param>("yomiage-fumiya.dev_param", {
+export const paramsAtom = atomWithStorage<Params>("yomiage-fumiya.dev_param", {
   channelName: "",
   filters: {
     maxChars: 30,
@@ -31,41 +28,3 @@ export const paramAtom = atomWithStorage<Param>("yomiage-fumiya.dev_param", {
   readUname: false,
   speakerId: 3,
 });
-
-export const channelNameAtom = focusAtom(paramAtom, (optic) =>
-  optic.prop("channelName")
-);
-
-export const maxCharsAtom = focusAtom(paramAtom, (optic) =>
-  optic.prop("filters").prop("maxChars")
-);
-
-export const ngWordsAtom = focusAtom(paramAtom, (optic) =>
-  optic.prop("filters").prop("ngWords")
-);
-
-export const ngUsersAtom = focusAtom(paramAtom, (optic) =>
-  optic.prop("filters").prop("ngUsers")
-);
-
-export const replaceWordsAtom = focusAtom(paramAtom, (optic) =>
-  optic.prop("replaceWords")
-);
-
-export const volumeAtom = focusAtom(paramAtom, (optic) => optic.prop("volume"));
-
-export const readUnameAtom = focusAtom(paramAtom, (optic) =>
-  optic.prop("readUname")
-);
-
-export const speakerIdAtom = focusAtom(paramAtom, (optic) =>
-  optic.prop("speakerId")
-);
-
-export const tmiClientAtom = atom(
-  (get) => new tmi.Client({ channels: [get(channelNameAtom)] })
-);
-
-export const clientAtom = atom((get) => ({
-  twitch: get(tmiClientAtom),
-}));
