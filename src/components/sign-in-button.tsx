@@ -6,7 +6,7 @@ import { Button } from "~/components/ui/button";
 
 export function SignInButton() {
   const handleSignIn = useCallback(
-    () => signIn("discord", { redirect: true, callbackUrl: "/" }),
+    () => signIn("discord", { redirect: true, callbackUrl: "/yomiage" }),
     []
   );
 
