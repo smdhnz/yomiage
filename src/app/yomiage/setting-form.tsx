@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 import { Toggle } from "~/components/ui/toggle";
+import { ConnectButton } from "./connect-button";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   speakers: { label: string; value: number }[];
@@ -188,9 +189,7 @@ export function SettingForm({ className, speakers, ...props }: Props) {
         </Select>
       </Labeled>
 
-      <Toggle variant="outline" className="mr-auto">
-        Start
-      </Toggle>
+      <ConnectButton />
     </div>
   );
 }
