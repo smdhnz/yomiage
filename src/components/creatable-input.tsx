@@ -1,13 +1,16 @@
+"use client";
+
 import * as React from "react";
 import { X } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
 
 type Props = {
+  id?: string;
   values: string[];
   setValues: (values: string[]) => void;
 };
 
-export function CreatableInput({ values, setValues }: Props) {
+export function CreatableInput({ id, values, setValues }: Props) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = React.useState("");
 
@@ -43,7 +46,7 @@ export function CreatableInput({ values, setValues }: Props) {
         <div className="flex flex-wrap gap-1">
           {values.map((value) => {
             return (
-              <Badge key={value} variant="secondary">
+              <Badge key={value} variant="outline">
                 {value}
                 <button
                   className="ml-1 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2"
@@ -62,6 +65,7 @@ export function CreatableInput({ values, setValues }: Props) {
             );
           })}
           <input
+            id={id}
             ref={inputRef}
             value={inputValue}
             onChange={(e) => setInputValue(e.currentTarget.value)}
