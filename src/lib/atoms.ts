@@ -1,7 +1,7 @@
 import { ChatClient } from "@twurple/chat";
 import { atom } from "jotai";
-import { atomWithStorage, selectAtom } from "jotai/utils";
-import { toast } from "sonner";
+import { atomWithStorage } from "jotai/utils";
+import { focusAtom } from "jotai-optics";
 
 export type Params = {
   channelName: string;
@@ -32,23 +32,14 @@ export const paramsAtom = atomWithStorage<Params>("yomiage-fumiya.dev_param", {
   speakerId: 3,
 });
 
-const channelNameAtom = selectAtom(paramsAtom, (params) => params.channelName);
+export const channelNameAtom = focusAtom(paramsAtom, (optics) =>
+  optics.prop("channelName")
+);
+
+export const connectedAtom = atom(false);
 
 export const clientAtom = atom<ChatClient | null>((get) => {
-  const channelName = get(channelNameAtom);
-
-  if (!channelName) return null;
-
-  const client = new ChatClient({
-    channels: [channelName],
-  });
-
-  client.onJoin(() => toast.success("Connected"));
-  client.onJoinFailure(() => {
-    toast.error("Connection failure");
-    client.quit();
-  });
-  client.onDisconnect(() => console.log("disconnected"));
-
-  return client;
+  return get(channelNameAtom)
+    ? new ChatClient({ channels: [get(channelNameAtom)] })
+    : null;
 });

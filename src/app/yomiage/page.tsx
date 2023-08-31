@@ -1,7 +1,9 @@
 import { fetcher } from "~/lib/utils";
 import { ModeToggle } from "~/components/ui/mode-toggle";
 import { SignOutButton } from "~/components/sign-out-button";
-import { SettingForm } from "./setting-form";
+import { ChannelNameInput } from "./channel-name-input";
+import { SettingDialog } from "./setting-dialog";
+import { ConnectButton } from "./connect-button";
 
 export default async function Page() {
   const speakers = (
@@ -11,12 +13,16 @@ export default async function Page() {
   ).map((label, i) => ({ label, value: i }));
 
   return (
-    <div>
-      <div className="fixed right-5 top-5 flex gap-2">
+    <div className="grid w-40 gap-4">
+      <div className="flex space-x-2">
         <ModeToggle />
         <SignOutButton variant="ghost" />
       </div>
-      <SettingForm speakers={speakers} className="w-full max-w-xl p-8" />
+      <ChannelNameInput />
+      <div className="flex space-x-2">
+        <SettingDialog speakers={speakers} />
+        <ConnectButton />
+      </div>
     </div>
   );
 }
