@@ -83,7 +83,7 @@ export function ConnectButton() {
   return (
     <Toggle
       variant="outline"
-      disabled={loading}
+      disabled={loading || !params.channelName}
       pressed={connected}
       onClick={onClick}
     >
