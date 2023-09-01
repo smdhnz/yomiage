@@ -4,14 +4,8 @@
  */
 await import("./src/env.mjs");
 
-import withPWAInit from "@ducanh2912/next-pwa";
-
-const withPWA = withPWAInit({
-  dest: "public",
-});
-
 /** @type {import("next").NextConfig} */
-const config = withPWA({
+const config = {
   reactStrictMode: true,
   experimental: {
     serverActions: true,
@@ -19,6 +13,6 @@ const config = withPWA({
   eslint: {
     ignoreDuringBuilds: true,
   },
-});
+};
 
 export default config;

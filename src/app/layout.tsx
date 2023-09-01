@@ -15,18 +15,16 @@ const APP_NAME = "yomiage";
 const APP_DESCRIPTION = "yomiage app on twitch live chat";
 
 export const metadata: Metadata = {
-  title: {
-    default: APP_NAME,
-    template: APP_NAME,
-  },
+  title: APP_NAME,
   description: APP_DESCRIPTION,
   icons: "/favicon.svg",
-  applicationName: APP_NAME,
-  manifest: "/manifest.json",
-  themeColor: "#FFFFFF",
   openGraph: {
     type: "website",
     siteName: APP_NAME,
+    title: {
+      default: APP_NAME,
+      template: APP_NAME,
+    },
     description: APP_DESCRIPTION,
   },
 };
