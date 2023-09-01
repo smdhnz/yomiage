@@ -14,6 +14,7 @@ export const notoSansJp = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "yomiage",
   description: "",
+  icons: "/favicon.svg",
 };
 
 export default function RootLayout({
