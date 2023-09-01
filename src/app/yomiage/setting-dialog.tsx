@@ -5,7 +5,7 @@ import { useImmerAtom } from "jotai-immer";
 import { useAtomValue } from "jotai";
 import { Trash2, PlusSquare, Settings } from "lucide-react";
 
-import { paramsAtom, connectedAtom } from "~/lib/atoms";
+import { paramsAtom, connectedAtom, loadingAtom } from "~/lib/atoms";
 import { CreatableInput } from "~/components/creatable-input";
 import { Labeled } from "~/components/labeled";
 import { Button } from "~/components/ui/button";
@@ -34,16 +34,16 @@ type Props = {
 export function SettingDialog({ speakers }: Props) {
   const [params, setParams] = useImmerAtom(paramsAtom);
   const connected = useAtomValue(connectedAtom);
+  const loading = useAtomValue(loadingAtom);
 
   return (
     <Dialog modal={false}>
       <DialogTrigger asChild>
-        <Button disabled={connected} variant="outline">
-          <Settings className="mr-2 h-4 w-4" />
-          Settings
+        <Button disabled={connected || loading} variant="ghost" size="icon">
+          <Settings className="h-[1.2rem] w-[1.2rem]" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-screen max-w-md overflow-y-auto">
+      <DialogContent className="max-h-screen max-w-md overflow-y-auto rounded-md">
         <DialogHeader>
           <DialogTitle>Settings</DialogTitle>
         </DialogHeader>

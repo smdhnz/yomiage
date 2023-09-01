@@ -1,7 +1,7 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAtom, useAtomValue } from "jotai";
 import { toast } from "sonner";
 
@@ -11,6 +11,7 @@ import {
   paramsAtom,
   clientAtom,
   connectedAtom,
+  loadingAtom,
 } from "~/lib/atoms";
 import {
   urlReplace,
@@ -38,7 +39,7 @@ export function ConnectButton() {
   const params = useAtomValue(paramsAtom);
   const client = useAtomValue(clientAtom);
   const [connected, setConnected] = useAtom(connectedAtom);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useAtom(loadingAtom);
 
   let listener: any;
 

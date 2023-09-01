@@ -37,6 +37,7 @@ export const channelNameAtom = focusAtom(paramsAtom, (optics) =>
 );
 
 export const connectedAtom = atom(false);
+export const loadingAtom = atom(false);
 
 export const clientAtom = atom<ChatClient | null>((get) => {
   return get(channelNameAtom)
