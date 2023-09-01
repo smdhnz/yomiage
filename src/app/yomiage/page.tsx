@@ -13,14 +13,14 @@ export default async function Page() {
   ).map((label, i) => ({ label, value: i }));
 
   return (
-    <div className="grid w-40 gap-4">
-      <div className="flex space-x-2">
-        <ModeToggle />
+    <div className="flex w-full max-w-xs flex-col items-start gap-4">
+      <div className="flex flex-wrap space-x-2">
         <SignOutButton variant="ghost" />
-      </div>
-      <ChannelNameInput />
-      <div className="flex space-x-2">
+        <ModeToggle />
         <SettingDialog speakers={speakers} />
+      </div>
+      <div className="flex items-end space-x-2">
+        <ChannelNameInput />
         <ConnectButton />
       </div>
     </div>
