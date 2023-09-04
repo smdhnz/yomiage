@@ -1,15 +1,15 @@
 "use client";
 
-import { Loader2 } from "lucide-react";
-import { useEffect } from "react";
+import { ChatClient } from "@twurple/chat";
+import { Loader2, Play, Pause } from "lucide-react";
+import { useState } from "react";
 import { useAtom, useAtomValue } from "jotai";
 import { toast } from "sonner";
 
-import { Toggle } from "~/components/ui/toggle";
+import { Button } from "~/components/ui/button";
 import {
   type Params,
   paramsAtom,
-  clientAtom,
   connectedAtom,
   loadingAtom,
 } from "~/lib/atoms";
@@ -37,58 +37,64 @@ const onMessageHandler = async (params: Params, user: string, text: string) => {
 
 export function ConnectButton() {
   const params = useAtomValue(paramsAtom);
-  const client = useAtomValue(clientAtom);
   const [connected, setConnected] = useAtom(connectedAtom);
   const [loading, setLoading] = useAtom(loadingAtom);
+  const [client, setClient] = useState<ChatClient | null>(null);
 
-  let listener: any;
+  const connect = () => {
+    setLoading(true);
 
-  useEffect(() => {
-    if (!client) return;
+    if (params.channelName === "") return;
 
-    client.onJoin(() => {
+    const newClient = new ChatClient({ channels: [params.channelName] });
+
+    newClient.connect();
+
+    newClient.onJoin(() => {
       toast.success("Connected");
       setConnected(true);
       setLoading(false);
-      listener = client.onMessage(async (_channel, user, text, _msg) => {
-        toast(user, { description: text });
-        console.log(user, text);
-        await onMessageHandler(params, user, text);
-      });
     });
-    client.onDisconnect(() => {
+    newClient.onDisconnect(() => {
       toast("Disconnected");
       setConnected(false);
       setLoading(false);
-      client.removeListener(listener);
     });
-    client.onJoinFailure(() => {
+    newClient.onJoinFailure(() => {
       toast.error("Error");
       setLoading(false);
     });
-  }, [client]);
+    newClient.onMessage(async (_channel, user, text, _msg) => {
+      await onMessageHandler(params, user, text);
+      toast(user, { description: text });
+      console.log(user, text);
+    });
 
-  const onClick = () => {
-    if (!client) return;
+    setClient(newClient);
+  };
 
-    setLoading(true);
-
-    if (connected) {
+  const disconnect = () => {
+    if (client) {
       client.quit();
-    } else {
-      client.connect();
+      setClient(null);
     }
   };
 
   return (
-    <Toggle
+    <Button
       variant="outline"
+      size="icon"
       disabled={loading || !params.channelName}
-      pressed={connected}
-      onClick={onClick}
+      onClick={connected ? disconnect : connect}
     >
-      {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-      {connected ? "Disconnect" : "Connect"}
-    </Toggle>
+      {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : null}
+      {!loading ? (
+        connected ? (
+          <Pause className="h-5 w-5" />
+        ) : (
+          <Play className="h-5 w-5" />
+        )
+      ) : null}
+    </Button>
   );
 }
