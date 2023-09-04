@@ -1,4 +1,3 @@
-import { ChatClient } from "@twurple/chat";
 import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import { focusAtom } from "jotai-optics";
@@ -38,9 +37,3 @@ export const channelNameAtom = focusAtom(paramsAtom, (optics) =>
 
 export const connectedAtom = atom(false);
 export const loadingAtom = atom(false);
-
-export const clientAtom = atom<ChatClient | null>((get) => {
-  return get(channelNameAtom)
-    ? new ChatClient({ channels: [get(channelNameAtom)] })
-    : null;
-});

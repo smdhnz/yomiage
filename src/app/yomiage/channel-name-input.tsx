@@ -16,6 +16,7 @@ export function ChannelNameInput() {
     <Labeled htmlFor="channelName" label="Channel name">
       <Input
         id="channelName"
+        autoComplete="off"
         value={channelName}
         disabled={connected || loading}
         onChange={(e) => setChannelName(e.target.value)}
