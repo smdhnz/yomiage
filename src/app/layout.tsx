@@ -6,7 +6,7 @@ import { Providers } from "~/components/providers";
 import { cn } from "~/lib/utils";
 import "~/globals.css";
 
-export const notoSansJp = Noto_Sans_JP({
+const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
   display: "swap",
 });
