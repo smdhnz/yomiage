@@ -19,7 +19,7 @@ export default async function Page() {
         <ModeToggle />
         <SettingDialog speakers={speakers} />
       </div>
-      <div className="flex items-end space-x-2">
+      <div className="flex items-end space-x-2 w-full">
         <ChannelNameInput />
         <ConnectButton />
       </div>
