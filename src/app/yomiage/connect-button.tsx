@@ -64,10 +64,11 @@ export function ConnectButton() {
       toast.error("Error");
       setLoading(false);
     });
-    newClient.onMessage(async (_channel, user, text, _msg) => {
-      await onMessageHandler(params, user, text);
+    newClient.onMessage(async (_channel, user, text, msg) => {
+      const username = msg.userInfo.displayName ?? user
       toast(user, { description: text });
       console.log(user, text);
+      await onMessageHandler(params, username, text);
     });
 
     setClient(newClient);
