@@ -43,10 +43,13 @@ dependencies:
     version: 0.7.1(typescript@5.2.2)(zod@3.22.4)
   '@twurple/chat':
     specifier: ^7.0.4
-    version: 7.0.4(@twurple/auth@7.0.4)
+    version: 7.0.4(@twurple/auth@7.0.4)(bufferutil@4.0.8)(utf-8-validate@6.0.3)
   '@vercel/analytics':
     specifier: ^1.1.1
     version: 1.1.1
+  bufferutil:
+    specifier: ^4.0.8
+    version: 4.0.8
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -56,6 +59,9 @@ dependencies:
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
+  encoding:
+    specifier: ^0.1.13
+    version: 0.1.13
   immer:
     specifier: ^10.0.3
     version: 10.0.3
@@ -92,6 +98,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.3.3)
+  utf-8-validate:
+    specifier: ^6.0.3
+    version: 6.0.3
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -170,7 +179,7 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@d-fischer/connection@8.0.5:
+  /@d-fischer/connection@8.0.5(bufferutil@4.0.8)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-F/rMmwVTE9/Rq2BzEU8CRoEVRvpUiSvazt56XgRp15oAbT9GC4D4CIfd4YlPxD5j63ueUjs0b+RDEN7BULrpRQ==}
     dependencies:
       '@d-fischer/isomorphic-ws': 7.0.0(ws@8.14.2)
@@ -179,16 +188,16 @@ packages:
       '@d-fischer/typed-event-emitter': 3.3.2
       '@types/ws': 8.5.8
       tslib: 2.6.2
-      ws: 8.14.2
+      ws: 8.14.2(bufferutil@4.0.8)(utf-8-validate@6.0.3)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     dev: false
 
-  /@d-fischer/cross-fetch@5.0.2:
+  /@d-fischer/cross-fetch@5.0.2(encoding@0.1.13):
     resolution: {integrity: sha512-Y+Q2mKaVvZ0ouWnaSwhiLZAOEeh1r7rivNMSzD6TBXi2D8VNwSBu6j4TDnX4oHca6jjm9h8e2Ic9Heguz40f6Q==}
     dependencies:
-      node-fetch: 2.7.0
+      node-fetch: 2.7.0(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -211,7 +220,7 @@ packages:
     peerDependencies:
       ws: ^8.2.0
     dependencies:
-      ws: 8.14.2
+      ws: 8.14.2(bufferutil@4.0.8)(utf-8-validate@6.0.3)
     dev: false
 
   /@d-fischer/logger@4.2.3:
@@ -1509,10 +1518,10 @@ packages:
       zod: 3.22.4
     dev: false
 
-  /@twurple/api-call@7.0.4:
+  /@twurple/api-call@7.0.4(encoding@0.1.13):
     resolution: {integrity: sha512-8yqMFO/NjE0FHb31SKMdXYeJ0HtcEIlFksx63xmSel0cupSNVmO87QxF8uHEGrQZenkBkmfjA3MzL++wyS3cuA==}
     dependencies:
-      '@d-fischer/cross-fetch': 5.0.2
+      '@d-fischer/cross-fetch': 5.0.2(encoding@0.1.13)
       '@d-fischer/qs': 7.0.2
       '@d-fischer/shared-utils': 3.6.3
       '@twurple/common': 7.0.4
@@ -1521,20 +1530,20 @@ packages:
       - encoding
     dev: false
 
-  /@twurple/auth@7.0.4:
+  /@twurple/auth@7.0.4(encoding@0.1.13):
     resolution: {integrity: sha512-VQD76qh2XngP2Eyp+YWvUDcjmADt0Q7B0ajXT1GAIATsvBcpGfy54Nk+0b4CLe/Q8rEidPDWyxshZCTv5VZdjQ==}
     dependencies:
       '@d-fischer/logger': 4.2.3
       '@d-fischer/shared-utils': 3.6.3
       '@d-fischer/typed-event-emitter': 3.3.2
-      '@twurple/api-call': 7.0.4
+      '@twurple/api-call': 7.0.4(encoding@0.1.13)
       '@twurple/common': 7.0.4
       tslib: 2.6.2
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@twurple/chat@7.0.4(@twurple/auth@7.0.4):
+  /@twurple/chat@7.0.4(@twurple/auth@7.0.4)(bufferutil@4.0.8)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-qUMCUY3M/2Mus0g2ASoyZZtZGRz+Tm9KLWgTazeZnn/PbcWth04NkgbisCKrpgu7hQKTNI1BBGFaGobIecieOA==}
     peerDependencies:
       '@twurple/auth': 7.0.4
@@ -1545,9 +1554,9 @@ packages:
       '@d-fischer/rate-limiter': 0.7.5
       '@d-fischer/shared-utils': 3.6.3
       '@d-fischer/typed-event-emitter': 3.3.2
-      '@twurple/auth': 7.0.4
+      '@twurple/auth': 7.0.4(encoding@0.1.13)
       '@twurple/common': 7.0.4
-      ircv3: 0.32.3
+      ircv3: 0.32.3(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       tslib: 2.6.2
     transitivePeerDependencies:
       - bufferutil
@@ -1983,6 +1992,14 @@ packages:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: true
 
+  /bufferutil@4.0.8:
+    resolution: {integrity: sha512-4T53u4PdgsXqKaIctwF8ifXlRTTmEPJ8iEPWFdGZvcf7sbwYo6FKFEX9eNNAnzFZ7EzJAQ3CJeOtCRA4rDp7Pw==}
+    engines: {node: '>=6.14.2'}
+    requiresBuild: true
+    dependencies:
+      node-gyp-build: 4.6.1
+    dev: false
+
   /busboy@1.6.0:
     resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
     engines: {node: '>=10.16.0'}
@@ -2264,6 +2281,12 @@ packages:
   /emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
+
+  /encoding@0.1.13:
+    resolution: {integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==}
+    dependencies:
+      iconv-lite: 0.6.3
+    dev: false
 
   /enhanced-resolve@5.15.0:
     resolution: {integrity: sha512-LXYT42KJ7lpIKECr2mAXIaMldcNCh/7E0KBKOu4KSfkHmP+mZmSs+8V5gBAqisWBy0OO4W5Oyys0GO1Y8KtdKg==}
@@ -3007,6 +3030,13 @@ packages:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
     dev: true
 
+  /iconv-lite@0.6.3:
+    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: false
+
   /ignore@5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
@@ -3052,10 +3082,10 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
-  /ircv3@0.32.3:
+  /ircv3@0.32.3(bufferutil@4.0.8)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-H0ejwbIPzJO73PPGJGrdEDrqRxxK0f+6/7kNZ7yY/ukTDZ8zy7w7mN4wMbmOFrnPYO78ZKnbeqmkBRgcVJ552Q==}
     dependencies:
-      '@d-fischer/connection': 8.0.5
+      '@d-fischer/connection': 8.0.5(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       '@d-fischer/escape-string-regexp': 5.0.0
       '@d-fischer/logger': 4.2.3
       '@d-fischer/shared-utils': 3.6.3
@@ -3542,7 +3572,7 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /node-fetch@2.7.0:
+  /node-fetch@2.7.0(encoding@0.1.13):
     resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
     engines: {node: 4.x || >=6.0.0}
     peerDependencies:
@@ -3551,7 +3581,13 @@ packages:
       encoding:
         optional: true
     dependencies:
+      encoding: 0.1.13
       whatwg-url: 5.0.0
+    dev: false
+
+  /node-gyp-build@4.6.1:
+    resolution: {integrity: sha512-24vnklJmyRS8ViBNI8KbtK/r/DmXQMRiOMXTNz2nrTnAYUwjmEEbnnpB/+kt+yWRv73bPsSPRFddrcIbAxSiMQ==}
+    hasBin: true
     dev: false
 
   /node-releases@2.0.13:
@@ -4023,6 +4059,10 @@ packages:
       get-intrinsic: 1.2.1
       is-regex: 1.1.4
 
+  /safer-buffer@2.1.2:
+    resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    dev: false
+
   /scheduler@0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
@@ -4445,6 +4485,14 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /utf-8-validate@6.0.3:
+    resolution: {integrity: sha512-uIuGf9TWQ/y+0Lp+KGZCMuJWc3N9BHA+l/UmHd/oUHwJJDeysyTRxNQVkbzsIWfGFbRe3OcgML/i0mvVRPOyDA==}
+    engines: {node: '>=6.14.2'}
+    requiresBuild: true
+    dependencies:
+      node-gyp-build: 4.6.1
+    dev: false
+
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -4528,7 +4576,7 @@ packages:
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  /ws@8.14.2:
+  /ws@8.14.2(bufferutil@4.0.8)(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -4539,6 +4587,9 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dependencies:
+      bufferutil: 4.0.8
+      utf-8-validate: 6.0.3
     dev: false
 
   /yallist@4.0.0:
