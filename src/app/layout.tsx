@@ -13,7 +13,7 @@ const notoSansJp = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: "yomiage - fumiya.dev",
-  description: "yomiage app on twitch live chat",
+  description: "超シンプルなTwitch配信コメント読み上げアプリ",
 };
 
 export default function RootLayout({
