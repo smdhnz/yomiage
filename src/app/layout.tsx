@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ja" suppressHydrationWarning>
       <head />
       <body className={cn("antialiased", notoSansJp.className)}>
         <Providers attribute="class" defaultTheme="system" enableSystem>

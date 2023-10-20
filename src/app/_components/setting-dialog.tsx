@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useImmerAtom } from "jotai-immer";
 import { useAtomValue } from "jotai";
-import { Trash2, PlusSquare, Settings } from "lucide-react";
+import { Trash2, PlusSquare, Settings, ArrowRight } from "lucide-react";
 
 import { paramsAtom, connectedAtom, loadingAtom } from "~/lib/atoms";
 import { CreatableInput } from "~/components/creatable-input";
@@ -45,10 +45,10 @@ export function SettingDialog({ speakers }: Props) {
       </DialogTrigger>
       <DialogContent className="max-h-screen max-w-md overflow-y-auto rounded-md">
         <DialogHeader>
-          <DialogTitle>Settings</DialogTitle>
+          <DialogTitle>読み上げ設定</DialogTitle>
         </DialogHeader>
         <div className={"flex flex-col gap-4"}>
-          <Labeled htmlFor="maxChars" label="Maximum character count">
+          <Labeled htmlFor="maxChars" label="最大文字数">
             <Input
               id="maxChars"
               type="number"
@@ -61,7 +61,7 @@ export function SettingDialog({ speakers }: Props) {
             />
           </Labeled>
 
-          <Labeled htmlFor="ngWords" label="NG words">
+          <Labeled htmlFor="ngWords" label="NGワード">
             <CreatableInput
               id="ngWords"
               values={params.filters.ngWords}
@@ -73,7 +73,7 @@ export function SettingDialog({ speakers }: Props) {
             />
           </Labeled>
 
-          <Labeled htmlFor="ngUsers" label="NG users">
+          <Labeled htmlFor="ngUsers" label="NGユーザー">
             <CreatableInput
               id="ngUsers"
               values={params.filters.ngUsers}
@@ -85,7 +85,7 @@ export function SettingDialog({ speakers }: Props) {
             />
           </Labeled>
 
-          <Labeled htmlFor="replaceWords" label="Multiple word replacements">
+          <Labeled htmlFor="replaceWords" label="単語の読み変換">
             {params.replaceWords.map((replacedWord, i) => {
               return (
                 <div
@@ -101,7 +101,7 @@ export function SettingDialog({ speakers }: Props) {
                       });
                     }}
                   />
-                  to
+                  <ArrowRight className="h-[1.2rem] w-[1.2rem]" />
                   <Input
                     className="w-full flex-1"
                     value={replacedWord.to}
@@ -135,13 +135,13 @@ export function SettingDialog({ speakers }: Props) {
               }
             >
               <PlusSquare className="h-[1.2rem] w-[1.2rem]" />
-              Add new
+              追加する
             </Button>
           </Labeled>
 
           <Labeled
             htmlFor="volume"
-            label={`Volume ${parseInt(`${params.volume[0]! * 100}`, 10)}%`}
+            label={`音量 ${parseInt(`${params.volume[0]! * 100}`, 10)}%`}
             className="mb-2"
           >
             <Slider
@@ -158,7 +158,7 @@ export function SettingDialog({ speakers }: Props) {
             />
           </Labeled>
 
-          <Labeled htmlFor="readUname" label="Read the username">
+          <Labeled htmlFor="readUname" label="ユーザー名の読み上げ">
             <Switch
               id="readUname"
               checked={params.readUname}
@@ -170,7 +170,7 @@ export function SettingDialog({ speakers }: Props) {
             />
           </Labeled>
 
-          <Labeled htmlFor="speakers" label="VoiceVox speakers">
+          <Labeled htmlFor="speakers" label="VoiceVox話者">
             <Select
               onValueChange={(value) => {
                 const num = Number(value);

@@ -13,7 +13,11 @@ export function ChannelNameInput() {
   const loading = useAtomValue(loadingAtom);
 
   return (
-    <Labeled htmlFor="channelName" label="Channel name" className="flex-1">
+    <Labeled
+      htmlFor="channelName"
+      label="チャンネル名(ユーザー名)"
+      className="flex-1"
+    >
       <Input
         id="channelName"
         autoComplete="off"
