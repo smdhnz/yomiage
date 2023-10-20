@@ -2,9 +2,9 @@ import * as React from "react";
 import { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import { Providers } from "~/components/providers";
 import { cn } from "~/lib/utils";
 import "~/globals.css";
+import { Providers } from "./_components/providers";
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
