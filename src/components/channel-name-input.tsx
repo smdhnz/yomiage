@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { useAtom, useAtomValue } from "jotai";
 
 import { connectedAtom, channelNameAtom, loadingAtom } from "~/lib/atoms";

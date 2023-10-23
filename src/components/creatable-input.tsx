@@ -1,5 +1,6 @@
 import * as React from "react";
 import { X } from "lucide-react";
+
 import { Badge } from "~/components/ui/badge";
 
 type Props = {
@@ -68,7 +69,7 @@ export function CreatableInput({ id, values, setValues }: Props) {
             value={inputValue}
             onChange={(e) => setInputValue(e.currentTarget.value)}
             autoComplete="off"
-            className="h-[26px] flex-1 bg-transparent outline-none placeholder:text-muted-foreground"
+            className="h-[26px] flex-grow bg-transparent outline-none placeholder:text-muted-foreground"
           />
         </div>
       </div>

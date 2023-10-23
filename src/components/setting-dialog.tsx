@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { useImmerAtom } from "jotai-immer";
 import { useAtomValue } from "jotai";
 import { Trash2, PlusSquare, Settings, ArrowRight } from "lucide-react";
