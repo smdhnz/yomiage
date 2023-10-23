@@ -45,7 +45,7 @@ export function SettingDialog({ speakers }: Props) {
       </DialogTrigger>
       <DialogContent className="max-h-screen max-w-md overflow-y-auto rounded-md">
         <DialogHeader>
-          <DialogTitle>読み上げ設定</DialogTitle>
+          <DialogTitle>設定</DialogTitle>
         </DialogHeader>
         <div className={"flex flex-col gap-4"}>
           <Labeled htmlFor="maxChars" label="最大文字数">
@@ -170,7 +170,7 @@ export function SettingDialog({ speakers }: Props) {
             />
           </Labeled>
 
-          <Labeled htmlFor="speakers" label="VoiceVox話者">
+          <Labeled htmlFor="speakers" label="VOICEVOX話者">
             <Select
               onValueChange={(value) => {
                 const num = Number(value);
