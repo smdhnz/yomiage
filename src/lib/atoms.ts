@@ -22,10 +22,10 @@ export const paramsAtom = atomWithStorage<Params>("yomiage-fumiya.dev_param", {
   channelName: "",
   filters: {
     maxChars: 30,
-    ngWords: [],
-    ngUsers: [],
+    ngWords: ["NG", "ワード"],
+    ngUsers: ["elonmask"],
   },
-  replaceWords: [{ from: "", to: "" }],
+  replaceWords: [{ from: "overwatch", to: "オーバーウォッチ" }],
   volume: [0.5],
   readUname: false,
   speakerId: 3,
