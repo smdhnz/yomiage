@@ -1,7 +1,7 @@
 "use client";
 
 import { ChatClient } from "@twurple/chat";
-import { Loader2, Play, Pause } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useAtom, useAtomValue } from "jotai";
 import { toast } from "sonner";
@@ -83,19 +83,12 @@ export function ConnectButton() {
 
   return (
     <Button
-      variant="outline"
-      size="icon"
+      variant="default"
       disabled={loading || !params.channelName}
       onClick={connected ? disconnect : connect}
     >
       {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : null}
-      {!loading ? (
-        connected ? (
-          <Pause className="h-5 w-5" />
-        ) : (
-          <Play className="h-5 w-5" />
-        )
-      ) : null}
+      {!loading ? (connected ? "STOP" : "START") : null}
     </Button>
   );
 }

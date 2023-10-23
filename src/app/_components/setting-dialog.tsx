@@ -37,9 +37,9 @@ export function SettingDialog({ speakers }: Props) {
   const loading = useAtomValue(loadingAtom);
 
   return (
-    <Dialog modal={false}>
+    <Dialog modal>
       <DialogTrigger asChild>
-        <Button disabled={connected || loading} variant="ghost" size="icon">
+        <Button disabled={connected || loading} variant="outline" size="icon">
           <Settings className="h-[1.2rem] w-[1.2rem]" />
         </Button>
       </DialogTrigger>
@@ -85,7 +85,7 @@ export function SettingDialog({ speakers }: Props) {
             />
           </Labeled>
 
-          <Labeled htmlFor="replaceWords" label="単語の読み変換">
+          <Labeled htmlFor="replaceWords" label="単語の読み換え">
             {params.replaceWords.map((replacedWord, i) => {
               return (
                 <div

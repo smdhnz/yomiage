@@ -16,7 +16,7 @@ export function ChannelNameInput() {
     <Labeled
       htmlFor="channelName"
       label="チャンネル名(ユーザー名)"
-      className="flex-1"
+      className="w-full"
     >
       <Input
         id="channelName"

@@ -40,7 +40,7 @@ export function CreatableInput({ id, values, setValues }: Props) {
 
   return (
     <div onKeyDown={handleKeyDown} className="overflow-visible bg-transparent">
-      <div className="group rounded-md border border-input px-3 py-2 text-sm ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
+      <div className="group rounded-md border border-input px-3 py-1 text-sm shadow-sm ring-offset-background focus-within:ring-1 focus-within:ring-ring">
         <div className="flex flex-wrap gap-1">
           {values.map((value) => {
             return (
@@ -67,8 +67,8 @@ export function CreatableInput({ id, values, setValues }: Props) {
             ref={inputRef}
             value={inputValue}
             onChange={(e) => setInputValue(e.currentTarget.value)}
-            placeholder=""
-            className="h-[22px] flex-1 bg-transparent outline-none placeholder:text-muted-foreground"
+            autoComplete="off"
+            className="h-[26px] flex-1 bg-transparent outline-none placeholder:text-muted-foreground"
           />
         </div>
       </div>
