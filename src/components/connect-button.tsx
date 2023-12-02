@@ -25,7 +25,7 @@ const onMessageHandler = async (params: Params, user: string, text: string) => {
   let message: string;
   if (!user) return;
   if (params.filters.ngUsers.includes(user)) return;
-  if (params.filters.ngWords.some((word) => message.includes(word))) return;
+  if (params.filters.ngWords.some((word) => text.includes(word))) return;
   message = urlReplace(text, "URL省略");
   message = omitReplace(text, params.filters.maxChars, "以下省略");
   message = multipleReplace(text, params.replaceWords);
