@@ -12,7 +12,7 @@ export function fetchVoiceVox(
 ): Promise<HTMLAudioElement> {
   return new Promise((resolve, reject) => {
     const audio = new Audio();
-    const params = `?speaker=${speakerId}&text=${text}`;
+    const params = `?speaker=${speakerId}&text=${text}&key=I37-O-6-73o-41Z`;
 
     if (audio.src.length > 0) {
       reject(new Error("Audio src already set"));
