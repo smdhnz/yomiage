@@ -2,6 +2,7 @@ import * as React from "react";
 import { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { cn } from "~/lib/utils";
 import { Providers } from "~/components/providers";
@@ -33,6 +34,7 @@ export default function RootLayout({
           </div>
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
