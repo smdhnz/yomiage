@@ -1,5 +1,5 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import {type ClassValue, clsx} from "clsx";
+import {twMerge} from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -48,7 +48,7 @@ export function omitReplace(text: string, n: number, placedText: string) {
 // 複数置換
 export function multipleReplace(
   text: string,
-  replaceWords: { from: string; to: string }[]
+  replaceWords: {from: string; to: string}[]
 ): string {
   let result = text;
   for (const word of replaceWords) {
@@ -65,4 +65,28 @@ export function playAudio(audio: HTMLAudioElement) {
     audio.play().catch(console.error);
     audio.onended = res;
   });
+}
+
+export class AsyncQueue {
+  private queue: (() => Promise<void>)[] = [];
+  private isRunning: boolean = false;
+
+  enqueue(asyncFunc: () => Promise<void>) {
+    this.queue.push(asyncFunc);
+    this.runQueue();
+  }
+
+  private async runQueue() {
+    if (this.isRunning) return;
+    this.isRunning = true;
+
+    while (this.queue.length > 0) {
+      const asyncFunc = this.queue.shift();
+      if (asyncFunc) {
+        await asyncFunc();
+      }
+    }
+
+    this.isRunning = false;
+  }
 }
