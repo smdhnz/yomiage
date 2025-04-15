@@ -1,8 +1,8 @@
-import { fetcher } from "~/lib/utils";
-import { ToggleTheme } from "~/components/toggle-theme";
-import { ChannelNameInput } from "~/components/channel-name-input";
-import { SettingDialog } from "~/components/setting-dialog";
-import { ConnectButton } from "~/components/connect-button";
+import { fetcher } from "@/lib/utils";
+import { ToggleTheme } from "@/components/toggle-theme";
+import { ChannelNameInput } from "@/components/channel-name-input";
+import { SettingDialog } from "@/components/setting-dialog";
+import { ConnectButton } from "@/components/connect-button";
 
 export default async function Page() {
   const speakers = (

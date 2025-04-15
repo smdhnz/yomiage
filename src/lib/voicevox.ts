@@ -8,7 +8,7 @@ type ResponseType = {
 
 export function fetchVoiceVox(
   speakerId: number,
-  text: string
+  text: string,
 ): Promise<HTMLAudioElement> {
   return new Promise((resolve, reject) => {
     const audio = new Audio();
@@ -19,15 +19,18 @@ export function fetchVoiceVox(
     }
 
     fetcher<ResponseType>(
-      "https://api.tts.quest/v3/voicevox/synthesis" + params
+      "https://api.tts.quest/v3/voicevox/synthesis" + params,
     )
       .then((data) => {
         if (data.retryAfter !== undefined) {
-          setTimeout(() => {
-            fetchVoiceVox(speakerId, text)
-              .then((audio) => resolve(audio))
-              .catch((error) => reject(error));
-          }, 1000 * (1 + data.retryAfter));
+          setTimeout(
+            () => {
+              fetchVoiceVox(speakerId, text)
+                .then((audio) => resolve(audio))
+                .catch((error) => reject(error));
+            },
+            1000 * (1 + data.retryAfter),
+          );
         } else if (data.mp3StreamingUrl !== undefined) {
           audio.src = data.mp3StreamingUrl;
           resolve(audio);

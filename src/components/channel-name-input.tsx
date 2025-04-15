@@ -2,9 +2,9 @@
 
 import { useAtom, useAtomValue } from "jotai";
 
-import { connectedAtom, channelNameAtom, loadingAtom } from "~/lib/atoms";
-import { Labeled } from "~/components/labeled";
-import { Input } from "~/components/ui/input";
+import { connectedAtom, channelNameAtom, loadingAtom } from "@/lib/atoms";
+import { Labeled } from "@/components/labeled";
+import { Input } from "@/components/ui/input";
 
 export function ChannelNameInput() {
   const [channelName, setChannelName] = useAtom(channelNameAtom);

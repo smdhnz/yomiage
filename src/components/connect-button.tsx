@@ -1,26 +1,26 @@
 "use client";
 
-import {ChatClient} from "@twurple/chat";
-import {Loader2} from "lucide-react";
-import {useState} from "react";
-import {useAtom, useAtomValue} from "jotai";
-import {toast} from "sonner";
+import { ChatClient } from "@twurple/chat";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
+import { useAtom, useAtomValue } from "jotai";
+import { toast } from "sonner";
 
-import {Button} from "~/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   type Params,
   paramsAtom,
   connectedAtom,
   loadingAtom,
-} from "~/lib/atoms";
+} from "@/lib/atoms";
 import {
   urlReplace,
   omitReplace,
   multipleReplace,
   playAudio,
   AsyncQueue,
-} from "~/lib/utils";
-import {fetchVoiceVox} from "~/lib/voicevox";
+} from "@/lib/utils";
+import { fetchVoiceVox } from "@/lib/voicevox";
 
 const onMessageHandler = async (params: Params, user: string, text: string) => {
   let message: string;
@@ -49,7 +49,7 @@ export function ConnectButton() {
 
     if (params.channelName === "") return;
 
-    const newClient = new ChatClient({channels: [params.channelName]});
+    const newClient = new ChatClient({ channels: [params.channelName] });
 
     newClient.connect();
 
@@ -69,11 +69,11 @@ export function ConnectButton() {
     });
     newClient.onMessage((_channel, user, text, msg) => {
       const username = msg.userInfo.displayName ?? user;
-      toast(user, {description: text});
+      toast(user, { description: text });
       console.log(user, text);
       asyncQueue.enqueue(async () => {
-        await onMessageHandler(params, username, text)
-      })
+        await onMessageHandler(params, username, text);
+      });
     });
 
     setClient(newClient);

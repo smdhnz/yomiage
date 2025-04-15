@@ -1,7 +1,7 @@
-import * as React from "react";
+import { useState, useRef } from "react";
 import { X } from "lucide-react";
 
-import { Badge } from "~/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 type Props = {
   id?: string;
@@ -10,8 +10,8 @@ type Props = {
 };
 
 export function CreatableInput({ id, values, setValues }: Props) {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const [inputValue, setInputValue] = React.useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = useState("");
 
   const handleDelete = (value: string) => {
     setValues(values.filter((v) => v !== value));

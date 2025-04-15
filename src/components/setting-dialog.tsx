@@ -4,27 +4,27 @@ import { useImmerAtom } from "jotai-immer";
 import { useAtomValue } from "jotai";
 import { Trash2, PlusSquare, Settings, ArrowRight } from "lucide-react";
 
-import { paramsAtom, connectedAtom, loadingAtom } from "~/lib/atoms";
-import { CreatableInput } from "~/components/creatable-input";
-import { Labeled } from "~/components/labeled";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
-import { Slider } from "~/components/ui/slider";
-import { Switch } from "~/components/ui/switch";
+import { paramsAtom, connectedAtom, loadingAtom } from "@/lib/atoms";
+import { CreatableInput } from "@/components/creatable-input";
+import { Labeled } from "@/components/labeled";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "~/components/ui/dialog";
+} from "@/components/ui/dialog";
 
 type Props = {
   speakers: { label: string; value: number }[];

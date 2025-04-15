@@ -1,5 +1,5 @@
-import {type ClassValue, clsx} from "clsx";
-import {twMerge} from "tailwind-merge";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 // 型静的fetch
 export async function fetcher<JSON = any>(
   input: RequestInfo,
-  init?: RequestInit
+  init?: RequestInit,
 ): Promise<JSON> {
   const res = await fetch(input, init);
 
@@ -48,11 +48,12 @@ export function omitReplace(text: string, n: number, placedText: string) {
 // 複数置換
 export function multipleReplace(
   text: string,
-  replaceWords: {from: string; to: string}[]
+  replaceWords: { from: string; to: string }[],
 ): string {
   let result = text;
   for (const word of replaceWords) {
-    result = result.replace(word.from, word.to);
+    const regex = new RegExp(word.from, "i");
+    result = result.replace(regex, word.to);
   }
   return result;
 }

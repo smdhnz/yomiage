@@ -1,7 +1,5 @@
-import * as React from "react";
-
-import { cn } from "~/lib/utils";
-import { Label } from "./ui/label";
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   htmlFor?: string;

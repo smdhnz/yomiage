@@ -32,7 +32,7 @@ export const paramsAtom = atomWithStorage<Params>("yomiage-fumiya.dev_param", {
 });
 
 export const channelNameAtom = focusAtom(paramsAtom, (optics) =>
-  optics.prop("channelName")
+  optics.prop("channelName"),
 );
 
 export const connectedAtom = atom(false);
