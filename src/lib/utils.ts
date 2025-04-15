@@ -52,7 +52,8 @@ export function multipleReplace(
 ): string {
   let result = text;
   for (const word of replaceWords) {
-    const regex = new RegExp(word.from, "i");
+    const escapedTarget = word.from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(escapedTarget, "i");
     result = result.replace(regex, word.to);
   }
   return result;
