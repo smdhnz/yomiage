@@ -53,7 +53,7 @@ export function multipleReplace(
   let result = text;
   for (const word of replaceWords) {
     const escapedTarget = word.from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const regex = new RegExp(escapedTarget, "i");
+    const regex = new RegExp(escapedTarget, "gi"); // 全部置換 + 大文字小文字無視
     result = result.replace(regex, word.to);
   }
   return result;
